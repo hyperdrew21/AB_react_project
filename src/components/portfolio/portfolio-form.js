@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+
 import DropzoneComponent from "react-dropzone-component";
 
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
+
 
 
 export default class PortfolioForm extends Component {
@@ -16,6 +18,7 @@ export default class PortfolioForm extends Component {
             category: "Food",
             position: "",
             url: "",
+
             thumb_image: "",
             banner_image: "",
             logo: "",
@@ -119,6 +122,14 @@ export default class PortfolioForm extends Component {
             addRemoveLinks: true,
             maxFiles: 1
         };
+
+            thumb_img: "",
+            banner_img: "",
+            logo: ""
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 buildForm() {
     let formData = new FormData();
@@ -211,7 +222,11 @@ buildForm() {
                         />
                     </div>
 
+<<<<<<< HEAD
                     <div className="two-columns">
+
+                    <div>
+
                         <input
                         type="text"
                         name="position"
@@ -226,7 +241,10 @@ buildForm() {
                         placeholder="category"
                         value={this.state.catagory}
                         onChange={this.handleChange}
+
                         className = "select-element"
+
+
                         >
                             <option value="Food">Food</option>
                             <option value="Blog">Blog</option>
@@ -239,7 +257,11 @@ buildForm() {
                         </select>    
                     </div>
 
+
                     <div className="one-column">
+
+                    <div>
+
                     <textarea
                         type="text"
                         name="description"
@@ -248,6 +270,7 @@ buildForm() {
                         onChange={this.handleChange}
                         />
                     </div>
+
 
                     <div className="image-uploaders">
                         {this.state.thumb_image_url && this.state.editMode ? (
@@ -317,6 +340,13 @@ buildForm() {
                     </div>
                 </form>
             
+
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+
         );
     }
 }

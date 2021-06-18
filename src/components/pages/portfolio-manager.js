@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
+<<<<<<< HEAD
 
 import PortfolioSidebarList from "../portfolio/portfolio-sidebar-list";
 import PortfolioForm from "../portfolio/portfolio-form";
+=======
+import PortfolioForm from "../portfolio/portfolio-form";
+import PortfolioSidebarList from "../portfolio/portfolio-sidebar-list";
+>>>>>>> bd76c50c7566a712b9b2ce793f8e987f2fa6a087
 
 export default class PortfolioManager extends Component {
     constructor() {
         super();
 
         this.state = {
+<<<<<<< HEAD
             portfolioItems: [],
             portfolioToEdit: {}           
         };
@@ -61,6 +67,18 @@ export default class PortfolioManager extends Component {
         
        this.setState({
            portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+=======
+            portfolioItems: []            
+        };
+
+        this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(this);
+        this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
+    }
+
+    handleSuccessfulFormSubmission(portfoiloItem) {
+       this.setState({
+           portfolioItems: [portfoiloItem].concat(this.state.portfolioItems)
+>>>>>>> bd76c50c7566a712b9b2ce793f8e987f2fa6a087
        });
     }
 
@@ -70,12 +88,18 @@ export default class PortfolioManager extends Component {
 
     getPortfolioItems() {
         axios
+<<<<<<< HEAD
         .get(
             "https://andrewbristow.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc", 
             { 
             withCredentials: true
             }
         )
+=======
+        .get("https://andrewbristow.devcamp.space/portfolio/portfolio_items", 
+        { withCredentials: true
+        })
+>>>>>>> bd76c50c7566a712b9b2ce793f8e987f2fa6a087
         .then(response => {
             this.setState({
                 portfolioItems: [...response.data.portfolio_items]
@@ -94,6 +118,7 @@ export default class PortfolioManager extends Component {
             <div className="portfolio-manager-wrapper">
                 <div className="left-column">
                 <PortfolioForm 
+<<<<<<< HEAD
                 handleNewFormSubmission={this.handleNewFormSubmission}
                 handleEditFormSubmission={this.handleEditFormSubmission}
                 handleFormSubmissionError={this.handleFormSubmissionError}
@@ -107,6 +132,14 @@ export default class PortfolioManager extends Component {
                 data={this.state.portfolioItems}
                 handleEditClick={this.handleEditClick}
                 />
+=======
+                handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
+                handleFormSubmissionError={this.handleFormSubmissionError}
+                />
+                </div>
+                <div className="right-column">
+                < PortfolioSidebarList data={this.state.portfolioItems} />
+>>>>>>> bd76c50c7566a712b9b2ce793f8e987f2fa6a087
                 </div>
             </div>
         );
