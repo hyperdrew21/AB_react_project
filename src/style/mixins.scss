@@ -15,7 +15,6 @@
     &:hover {
         background-color: $dark-teal
     }
-<<<<<<< HEAD
 }
 
 @mixin input-element {
@@ -43,6 +42,4 @@
 @mixin base-grid() {
     display: grid;
     grid-gap: 21px;
-=======
->>>>>>> bd76c50c7566a712b9b2ce793f8e987f2fa6a087
 }
